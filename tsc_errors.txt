@@ -1,0 +1,8 @@
+app/components/DashboardScreen.tsx(29,31): error TS2307: Cannot find module '../types' or its corresponding type declarations.
+app/components/ExpenseItem.tsx(5,25): error TS2307: Cannot find module '../types' or its corresponding type declarations.
+app/components/ExpenseList.tsx(4,25): error TS2307: Cannot find module '../types' or its corresponding type declarations.
+app/index.tsx(17,44): error TS2304: Cannot find name 'Expense'.
+app/index.tsx(18,36): error TS2304: Cannot find name 'User'.
+app/index.tsx(170,67): error TS2304: Cannot find name 'Expense'.
+app/services/authService.ts(1,22): error TS2307: Cannot find module '../types' or its corresponding type declarations.
+app/services/expenseService.ts(1,25): error TS2307: Cannot find module '../types' or its corresponding type declarations.
