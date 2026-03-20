@@ -1,50 +1,119 @@
-# Welcome to your Expo app 👋
+Got it—clean version **without GIF/demo section** 👌
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+---
 
-## Get started
+# 👁️ EyeGasto Expense Tracker
 
-1. Install dependencies
+![React Native](https://img.shields.io/badge/React%20Native-0.7+-blue?logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-Backend-green?logo=node.js)
+![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?logo=supabase)
+![Status](https://img.shields.io/badge/Status-Active-success)
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## 👋 Welcome!
 
-   ```bash
-   npx expo start
-   ```
+**Credits:**
 
-In the output, you'll find options to open the app in a
+- **CarlDev** for designing and developing the app 🚀
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📱 About EyeGasto
 
-## Get a fresh project
+**EyeGasto** is a modern expense tracking mobile app that helps users monitor, manage, and visualize their daily spending. It features a clean UI and real-time tracking for better financial awareness.
 
-When you're ready, run:
+---
+
+## ✨ Features
+
+- 💸 Add, edit, and delete expenses
+- 📊 Real-time expense tracking and summaries
+- 📅 Daily and monthly spending overview
+- 🧾 Categorized expenses for better organization
+- 🔍 Clean and user-friendly interface
+- 🌙 (Optional) Dark mode support
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Screen
+
+![Home](assets/screenshots/home.jpg)
+
+### 🔐 Log-in Screen
+
+![Log-in](assets/screenshots/login.jpg)
+
+### 📝 Register Screen
+
+![Register](assets/screenshots/register.jpg)
+
+### 📊 Stats Screen
+
+![Stats](assets/screenshots/stats.jpg)
+
+### 👤 Profile Screen
+
+![Profile](assets/screenshots/profile.jpg)
+
+## ⚙️ Installation
 
 ```bash
-npm run reset-project
+# Clone the repository
+git clone https://github.com/Carl46436/EyeGastoV2.git
+
+# Navigate to the project folder
+cd expense_tracker
+
+# Install dependencies
+npm install
+
+# Run the app
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 🛠 Tech Stack
 
-To learn more about developing your project with Expo, look at the following resources:
+- **Frontend:** React Native
+- **Backend:** Node.js
+- **Database:** Supabase
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## 📂 Project Structure
 
-Join our community of developers creating universal apps.
+```
+EyeGasto/
+├── assets/
+├── components/
+├── screens/
+├── services/
+├── App.js
+└── package.json
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## 🚀 Future Improvements
+
+- 🔐 User authentication
+- ☁️ Cloud sync across devices
+- 📈 Advanced analytics & charts
+- 💳 Budget planning feature
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
+
+---
+
+If you want, I can also:
+
+- make this **look like a top-tier GitHub project (with header banner + logo)**
+- or tailor it for **portfolio/resume use** 🔥
