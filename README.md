@@ -1,7 +1,3 @@
-Got it—clean version **without GIF/demo section** 👌
-
----
-
 # 👁️ EyeGasto Expense Tracker
 
 ![React Native](https://img.shields.io/badge/React%20Native-0.7+-blue?logo=react)
