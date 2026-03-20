@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
+import FloatingLines from "./FloatingLines";
 import { supabase } from "../services/supabaseClient";
 
 interface Props {
@@ -65,7 +66,7 @@ export default function LoginScreen({
     }
   };
 
-  return (
+return (
     <LinearGradient
       colors={["#020617", "#0F172A", "#1E293B"]}
       style={styles.container}
@@ -74,96 +75,94 @@ export default function LoginScreen({
         style={{ flex: 1 }}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-        <ScrollView 
+        <ScrollView
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
           keyboardDismissMode="on-drag"
           showsVerticalScrollIndicator={false}
         >
-            <TouchableOpacity onPress={onBackPress} style={styles.backButton}>
-              <Text style={styles.backText}>← Back</Text>
-            </TouchableOpacity>
+          <TouchableOpacity onPress={onBackPress} style={styles.backButton}>
+            <Text style={styles.backText}>← Back</Text>
+          </TouchableOpacity>
 
-            <Animated.View style={{ transform: [{ translateY: slideAnim }] }}>
-              <BlurView intensity={40} tint="dark" style={styles.card}>
-                <Text style={styles.title}>Login</Text>
-                <Text style={styles.subtitle}>
-                  Sign in to continue tracking your expenses.
+          <Animated.View style={{ transform: [{ translateY: slideAnim }] }}>
+            <BlurView intensity={40} tint="dark" style={styles.card}>
+              <Text style={styles.title}>Login</Text>
+              <Text style={styles.subtitle}>
+                Sign in to continue tracking your expenses.
+              </Text>
+
+              {/* EMAIL */}
+              <View style={styles.inputGroup}>
+                <Text style={styles.label}>Email</Text>
+                <View style={styles.inputWrapper}>
+                  <Text style={styles.icon}>📩</Text>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Enter your email"
+                    value={email}
+                    onChangeText={setEmail}
+                    keyboardType="email-address"
+                    placeholderTextColor="#9CA3AF"
+                    returnKeyType="next"
+                    onSubmitEditing={() => passwordRef.current?.focus()}
+                  />
+                </View>
+              </View>
+
+              {/* PASSWORD */}
+              <View style={styles.inputGroup}>
+                <Text style={styles.label}>Password</Text>
+                <View style={styles.inputWrapper}>
+                  <Text style={styles.icon}>🔑</Text>
+                  <TextInput
+                    ref={passwordRef}
+                    style={styles.input}
+                    placeholder="********"
+                    value={password}
+                    onChangeText={setPassword}
+                    secureTextEntry={!showPassword}
+                    placeholderTextColor="#9CA3AF"
+                    returnKeyType="go"
+                    onSubmitEditing={handleLogin}
+                  />
+                  <TouchableOpacity
+                    onPress={() => setShowPassword(!showPassword)}
+                  >
+                    <Text style={styles.eye}>{showPassword ? "🙈" : "👁"}</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+
+              {/* FORGOT PASSWORD */}
+              <TouchableOpacity
+                style={styles.forgotPassword}
+                onPress={handleForgotPassword}
+              >
+                <Text style={styles.forgotText}>Forgot Password?</Text>
+              </TouchableOpacity>
+
+              {/* LOGIN BUTTON */}
+              <TouchableOpacity
+                style={styles.loginButton}
+                onPress={handleLogin}
+                activeOpacity={0.8}
+              >
+                <Text style={styles.loginButtonText}>Sign In</Text>
+              </TouchableOpacity>
+
+              {/* REGISTER LINK */}
+              <TouchableOpacity
+                style={styles.registerLink}
+                onPress={onRegisterPress}
+              >
+                <Text style={styles.registerText}>
+                  Don't have an account? Register
                 </Text>
-
-                {/* EMAIL */}
-                <View style={styles.inputGroup}>
-                  <Text style={styles.label}>Email</Text>
-                  <View style={styles.inputWrapper}>
-                    <Text style={styles.icon}>📩</Text>
-                    <TextInput
-                      style={styles.input}
-                      placeholder="Enter your email"
-                      value={email}
-                      onChangeText={setEmail}
-                      keyboardType="email-address"
-                      placeholderTextColor="#9CA3AF"
-                      returnKeyType="next"
-                      onSubmitEditing={() => passwordRef.current?.focus()}
-                    />
-                  </View>
-                </View>
-
-                {/* PASSWORD */}
-                <View style={styles.inputGroup}>
-                  <Text style={styles.label}>Password</Text>
-                  <View style={styles.inputWrapper}>
-                    <Text style={styles.icon}>🔑</Text>
-                    <TextInput
-                      ref={passwordRef}
-                      style={styles.input}
-                      placeholder="********"
-                      value={password}
-                      onChangeText={setPassword}
-                      secureTextEntry={!showPassword}
-                      placeholderTextColor="#9CA3AF"
-                      returnKeyType="go"
-                      onSubmitEditing={handleLogin}
-                    />
-                    <TouchableOpacity
-                      onPress={() => setShowPassword(!showPassword)}
-                    >
-                      <Text style={styles.eye}>
-                        {showPassword ? "🙈" : "👁"}
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-
-                {/* FORGOT PASSWORD */}
-                <TouchableOpacity
-                  style={styles.forgotPassword}
-                  onPress={handleForgotPassword}
-                >
-                  <Text style={styles.forgotText}>Forgot Password?</Text>
-                </TouchableOpacity>
-
-                {/* LOGIN BUTTON */}
-                <TouchableOpacity
-                  style={styles.loginButton}
-                  onPress={handleLogin}
-                  activeOpacity={0.8}
-                >
-                  <Text style={styles.loginButtonText}>Sign In</Text>
-                </TouchableOpacity>
-
-                {/* REGISTER LINK */}
-                <TouchableOpacity
-                  style={styles.registerLink}
-                  onPress={onRegisterPress}
-                >
-                  <Text style={styles.registerText}>
-                    Don't have an account? Register
-                  </Text>
-                </TouchableOpacity>
-              </BlurView>
-            </Animated.View>
-          </ScrollView>
+              </TouchableOpacity>
+            </BlurView>
+          </Animated.View>
+        </ScrollView>
       </KeyboardAvoidingView>
     </LinearGradient>
   );
@@ -180,7 +179,12 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   container: { flex: 1 },
-  scrollContent: { flexGrow: 1, paddingHorizontal: 24, paddingTop: 40, justifyContent: "center" },
+  scrollContent: {
+    flexGrow: 1,
+    paddingHorizontal: 24,
+    paddingTop: 40,
+    justifyContent: "center",
+  },
   backButton: { marginBottom: 20 },
   backText: { color: "#A5B4FC", fontWeight: "600" },
   card: {
