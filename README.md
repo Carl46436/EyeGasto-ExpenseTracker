@@ -62,7 +62,7 @@ Got it—clean version **without GIF/demo section** 👌
 
 ```bash
 # Clone the repository
-git clone https://github.com/Carl46436/EyeGastoV2.git
+git clone https://github.com/Carl46436/EyeGasto-ExpenseTracker.git
 
 # Navigate to the project folder
 cd expense_tracker
